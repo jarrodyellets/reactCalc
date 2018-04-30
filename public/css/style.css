@@ -30,14 +30,14 @@ body {
 	justify-content: flex-end;
 	align-items: center;
 	padding-right: 10px;
-	font-size: 50px;
-	font-family: 'Atomic Age', cursive;
+	font-size: 60px;
+	font-family: 'VT323', monospace;
 	color: #5b5e4d;
 	border-radius: 10px;
 	border: 3px solid #8b8c87;
-	-webkit-box-shadow: inset 0px 0px 10px 1px rgba(0,0,0,0.75), 0px 0px 1px 10px rgba(200,200,200,1);
-	-moz-box-shadow: inset 0px 0px 10px 1px rgba(0,0,0,0.75), 0px 0px 1px 10px rgba(200,200,200,1);
-	box-shadow: inset 0px 0px 10px 1px rgba(0,0,0,0.75), 0px 0px 1px 10px rgba(200,200,200,1);
+	-webkit-box-shadow: inset 0px 0px 10px 1px rgba(0,0,0,0.75), 0px 0px 1px 8px rgba(200,200,200,1);
+	-moz-box-shadow: inset 0px 0px 10px 1px rgba(0,0,0,0.75), 0px 0px 1px 8px rgba(200,200,200,1);
+	box-shadow: inset 0px 0px 10px 1px rgba(0,0,0,0.75), 0px 0px 1px 8px rgba(200,200,200,1);
 }
 
 .panel {
@@ -46,7 +46,7 @@ body {
   height: 40px;
   background-color: #230033;
   display: flex;
-  margin: 25px 0 15px 20px;
+  margin: 23px 0 15px 20px;
   border-radius: 5px;
   -webkit-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,1);
 	-moz-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,1);
@@ -58,7 +58,7 @@ body {
   height: 100%;
 }
 
-#middle {
+.middle {
   border-right: 1px solid #525252;
   border-left: 1px solid #525252;
 }

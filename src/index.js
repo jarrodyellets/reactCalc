@@ -12,7 +12,8 @@ class App extends React.Component {
 		this.state = {
 			display: "0",
 			math: "",
-			number: true
+			number: true,
+			answer: false
 		}
 
 		this.handleClick = this.handleClick.bind(this);
@@ -21,18 +22,12 @@ class App extends React.Component {
 	}
 
 	handleClick(symbol, id){
-		const math = this.state.math;
-		console.log(math);
 		id == "function" ? this.setState((state) => ({
 			number: false,
-			math: state.math + symbol,
-			display: ""
+			math: !isNaN(state.math.slice(-1)) ? state.math + symbol : state.math.slice(0, -1) + symbol,
+			display: state.display
 		})) : null;
-		id == "number" ? this.setState((state) => ({
-			number: true
-		}), () => {
-			this.changeCalc(symbol);
-		}): null;
+		id == "number" ? this.changeCalc(symbol) : null;
 		id == "decimal" && this.state.display.indexOf(".") === -1 ? this.changeCalc(symbol) : null;
 		id == "clear" ? this.setState({
 			display: "0",
@@ -42,23 +37,25 @@ class App extends React.Component {
 			display: state.display.length > 1 ? state.display.substring(0, state.display.length - 1) : "0",
 			math: state.math.substring(0, state.math.length - 1)
 		})): null;
-		id == "equals" ? this.solve(math) : null;
+		id == "equals" ? this.solve(this.state.math) : null;
 	}
 
 	solve(string){
 		const answer = eval(string).toString();
 		this.setState((state) => ({
-			display: answer,
-			math: "",
-			number: false
+			display: answer.substring(0, 9),
+			math: answer.substring(0, 9),
+			answer: true
 		}))
 	}
 
 	changeCalc(symbol){
-		this.state.display.length < 7 ?
+		this.state.display.length < 9 || this.state.answer ?
 		this.setState((state) => ({
-			display: state.display == "0" || !state.number ? symbol : state.display + symbol,
-			math: state.math + symbol
+			display: state.display == "0" || !state.number || state.answer ? symbol : state.display + symbol,
+			math: state.answer && state.number ? symbol : state.math + symbol,
+			number: true,
+			answer: false
 		})): null
 
 	}
@@ -69,7 +66,7 @@ class App extends React.Component {
 					<Screen display={this.state.display} />
 					<div className="panel">
 				    <div className="solar"></div>
-				    <div className="solar" id="middle"></div>
+				    <div className="solar middle"></div>
 				    <div className="solar"></div>
 				  </div>
 				  <ButtonDisplay buttonData={buttonData} handleClick={this.handleClick} />
