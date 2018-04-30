@@ -2,7 +2,7 @@ import React from 'react';
 
 const Screen = (props) => {
 	return (
-			<div className="screen">123</div>
+			<div className="screen">{props.display}</div>
 		)
 }
 
