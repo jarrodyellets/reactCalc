@@ -56,7 +56,7 @@ class App extends React.Component {
 		this.state.display.length < 9 || this.state.answer || !this.state.number?
 		this.setState((state) => ({
 			display: state.display == "0" || !state.number || state.answer ? symbol : state.display + symbol,
-			math: state.answer && state.number ? symbol : state.math + symbol,
+			math: state.answer && state.number || state.display == "0" ? symbol : state.math + symbol,
 			number: true,
 			answer: false
 		})): null
