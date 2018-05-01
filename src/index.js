@@ -64,6 +64,7 @@ class App extends React.Component {
 
 	render() {
 		return (
+			<div className="wrapper">
 				<div className="calculator">
 					<Screen display={this.state.display} hover={this.state.hover} />
 					<div className="panel">
@@ -73,6 +74,10 @@ class App extends React.Component {
 				  </div>
 				  <ButtonDisplay buttonData={buttonData} handleClick={this.handleClick} />
 				</div>
+				<footer>
+  				<div className="author">&copy; Jarrod Yellets | 2018</div>
+				</footer>
+			</div>
 			)
 	}
 }

@@ -116,3 +116,11 @@ body {
 	background: linear-gradient(135deg, rgba(247,117,59,1) 0%, rgba(252,126,67,1) 52%, rgba(249,142,62,1) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7753b', endColorstr='#f98e3e', GradientType=1 );
 }
+
+.author {
+  text-align: center;
+  margin-top: 10px;
+  color: #ddd;
+  font-family: Raleway;
+  font-size: 1em;
+}
