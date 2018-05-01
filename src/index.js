@@ -53,7 +53,7 @@ class App extends React.Component {
 
 //Click handler for numbers
 	changeCalc(symbol){
-		this.state.display.length < 9 || this.state.answer ?
+		this.state.display.length < 9 || this.state.answer || !this.state.number?
 		this.setState((state) => ({
 			display: state.display == "0" || !state.number || state.answer ? symbol : state.display + symbol,
 			math: state.answer && state.number ? symbol : state.math + symbol,
